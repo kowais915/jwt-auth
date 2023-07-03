@@ -3,7 +3,7 @@ const {
    User
 } = require('../models/UserModel');
 
-const signIn = async (req ,res )=>{
+const signUp= async (req ,res )=>{
     const {email, password} = req.body;
    
     try{
@@ -16,7 +16,7 @@ const signIn = async (req ,res )=>{
 }
 
 
-const signUp = async (req, res)=>{
+const signIn = async (req, res)=>{
     res.status(200).json({
         msg: "Signing up"
     })
