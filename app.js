@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const PORT = 3001 || process.env.PORT;
+const userRouter = require("./routes/users") 
 require("dotenv").config();
 
 
@@ -26,3 +27,6 @@ mongoose.connect(process.env.MONGODB_URI)
 app.get("/", (req, res)=>{
   res.status(200).json({mssg: "Hello, world!"});
 })
+
+
+app.use("/users", userRouter);
