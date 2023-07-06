@@ -18,17 +18,12 @@ const userSchema = new Schema({
     }
 })
 
-<<<<<<< HEAD
 
 userSchema.statics.signup = async function(email, password){
     // validating
     // const email = {email}
     // const password = {email}
     
-=======
-userSchema.statics.signup = async function (email, password){
-    // validating email and password
->>>>>>> f21cb3e3a6771054f5c2f360df54f827e46d0348
     if(!email || !password)
     {
         throw Error('Email and password must be filled');
