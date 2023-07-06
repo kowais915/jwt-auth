@@ -18,17 +18,11 @@ const createToken = (_id)=>{
 
 const signUp= async (req ,res )=>{
     const {email, password} = req.body;
-<<<<<<< HEAD
    
     console.log("email", email);
     console.log("password", password);
     try{
        
-=======
-
-    try{
-
->>>>>>> f21cb3e3a6771054f5c2f360df54f827e46d0348
         const user = await User.signup(email, password);
         const token = createToken(user._id);
         res.status(200).json(email, token);
