@@ -21,7 +21,9 @@ const userSchema = new Schema({
 
 userSchema.statics.signup = async function(email, password){
     // validating
-
+    // const email = {email}
+    // const password = {email}
+    
     if(!email || !password)
     {
         throw Error("Please enter both email and password");
@@ -33,10 +35,7 @@ userSchema.statics.signup = async function(email, password){
         throw Error("Please enter a valid email");
     }
 
-    //checking if the password is strong
-    if(!validator.isStrongPassword(password)){
-        throw Error("Not a strong password");
-    }
+
 
     const exist = await this.findOne({email});
 
@@ -44,6 +43,11 @@ userSchema.statics.signup = async function(email, password){
     {
         throw new Error('Email already exists');
     }
+
+        //checking if the password is strong
+    if(!validator.isStrongPassword(password)){
+            throw Error("Not a strong password");
+        }
 
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);

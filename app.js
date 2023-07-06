@@ -1,7 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const PORT = 3001 || process.env.PORT;
+const PORT = 3000 || process.env.PORT;
 const userRouter = require("./routes/users") 
+const cors = require('cors');
 require("dotenv").config();
 
 
@@ -9,13 +10,15 @@ require("dotenv").config();
 
 const app = express();
 
+
 app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI)
   .then(()=>{
     console.log("Successfully connected to the database.")
+    console.log(PORT);
     app.listen(PORT, ()=>{
-      console.log("listening on 3001");
+      console.log("listening on 3000");
     })
   })
   .catch((err)=>{
