@@ -59,7 +59,7 @@ userSchema.statics.signup = async function(email, password){
 
 // implementation of the signin function
 
-userSchema.statics.signin = async function(email, password){
+userSchema.statics.login = async function(email, password){
 
     if(!email ||!password)
     {
