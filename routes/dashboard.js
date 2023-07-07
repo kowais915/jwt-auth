@@ -1,5 +1,9 @@
 const express = require('express');
+
+const auth = require('../middleware/auth');
+
 const route = express.Router();
+route.use(auth);
 
 
 route.get('/', (req, res)=>{
