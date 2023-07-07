@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const PORT = 3000 || process.env.PORT;
 const userRouter = require("./routes/users") 
+const productsRouter = require("./routes/products");
+const dashbaordRouter = require("./routes/dashboard");
 const cors = require('cors');
 require("dotenv").config();
 
@@ -34,3 +36,5 @@ app.get("/", (req, res)=>{
 
 
 app.use("/users", userRouter);
+app.use("/products", productsRouter);
+app.use("/dashboard", dashbaordRouter);
