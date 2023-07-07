@@ -8,7 +8,7 @@ const auth = async (req, res, next)=>{
     const {authorization } = req.headers;
 
     if(!authorization) {
-        return res.status(400).json({error: "token is required"});
+        return res.status(400).json({msg: "token is required"});
     }
 
     const token = authorization.split(' ')[1];
@@ -20,7 +20,7 @@ const auth = async (req, res, next)=>{
 
     }catch(err){
         console.log(err);
-        res.status(400).json({error: "token is not authorized"});
+        res.status(400).json({msg: "token is not authorized"});
     }
      
 }
