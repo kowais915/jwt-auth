@@ -59,7 +59,7 @@ const signIn = async (req, res)=>{
          res.status(200).json({email, token});
 
     }catch(err){
-        res.status(400).json({mssg: err.message});
+        res.status(400).json({error: err.message});
     }
 }
 

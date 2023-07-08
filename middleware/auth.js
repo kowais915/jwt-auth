@@ -8,7 +8,7 @@ const auth = async (req, res, next)=>{
     const {authorization } = req.headers;
 
     if(!authorization) {
-        return res.status(400).json({msg: "token is required"});
+        return res.status(400).json({msg: "Authorization is required"});
     }
 
     const token = authorization.split(' ')[1];
